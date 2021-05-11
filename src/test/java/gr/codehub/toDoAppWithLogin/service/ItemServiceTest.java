@@ -44,7 +44,7 @@ class ItemServiceTest {
     }
 
     @Test
-    @DisplayName("Htpp Authentication")
+    @DisplayName("Http Authentication")
     public void givenStatus_whenAccessAppHealth_thenStatus200()
             throws Exception {
         HttpHeaders httpHeaders = new HttpHeaders();
