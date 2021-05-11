@@ -37,7 +37,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers(resources).permitAll()
-                .antMatchers("/login", "/error", "/actuator/**").permitAll()
+                .antMatchers("/login", "/error").permitAll()
                 //.antMatchers("/**").permitAll() //remove this to make security work again !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
                 .antMatchers("/admin/*", "/**").access("hasAuthority('ADMIN')")
                 .antMatchers("/*").access("hasAuthority('USER') or hasAuthority('ADMIN')")
@@ -52,7 +52,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout().permitAll()
                 //need to use this in order to perform GET action:
-                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
+                .and()
+                .httpBasic();
 
     }
 
