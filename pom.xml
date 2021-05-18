@@ -8,7 +8,7 @@
         <version>2.3.5.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>gr.athtech</groupId>
+    <groupId>gr.codehub</groupId>
     <artifactId>toDoAppWithLogin</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>toDoAppWithLogin</name>
@@ -157,6 +157,11 @@
                 <configuration>
                     <fork>true</fork>
                     <mainClass>${start-class}</mainClass>
+                    <!--            Enable maven support to define custom multiple layers -->
+                    <layers>
+                        <enabled>true</enabled>
+                        <configuration>${project.basedir}/src/layers.xml</configuration>
+                    </layers>
                 </configuration>
                 <executions>
                     <execution>
